@@ -15,7 +15,7 @@ import os
 import webbrowser
 import sys
 
-ee.Initialize()
+ee.Initialize(project = 'solar-app-384209')
 geolocator = Nominatim(user_agent=os.path.abspath(sys.argv[0]))
 
 st.title("Estimating Rooftop Solar Potential")
