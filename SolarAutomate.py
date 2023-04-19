@@ -16,6 +16,14 @@ import webbrowser
 import sys
 
 ee.Initialize(project = 'solar-app-384209')
+def execute_command(cmd):
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+    output, error = process.communicate()
+    if error:
+        st.error(error.decode())
+    else:
+        st.code(output.decode())
+execute_command("earthengine authenticate")
 geolocator = Nominatim(user_agent=os.path.abspath(sys.argv[0]))
 
 st.title("Estimating Rooftop Solar Potential")
